@@ -5,6 +5,11 @@
         "dificuldade": "Difícil"
     },
     {
+        "nome": "ed",
+        "pontuacao": 30,
+        "dificuldade": "Médio"
+    },
+    {
         "nome": "32e",
         "pontuacao": 20,
         "dificuldade": "Facil"

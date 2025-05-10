@@ -28,11 +28,11 @@ class Cobra():
         tela = pygame.display.set_mode((self.largura, self.altura))
         pygame.display.set_caption(f"Snake - {self.cobrinha}")
         fonte = pygame.font.SysFont(None, 36)
+        pygame.time.delay(5000) 
         rodando = True
         try:
             while rodando:
                 self.clock.tick(self.velocidade)
-                pygame.event.pump()
                 for evento in pygame.event.get():
                     if evento.type == pygame.QUIT:
                         print("Fechando o jogo...")
