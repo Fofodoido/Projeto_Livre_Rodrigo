@@ -32,23 +32,20 @@ class Cobra():
         try:
             while rodando:
                 self.clock.tick(self.velocidade)
-
+                pygame.event.pump()
                 for evento in pygame.event.get():
                     if evento.type == pygame.QUIT:
                         print("Fechando o jogo...")
                         rodando = False
                     elif evento.type == pygame.KEYDOWN:
-                        # Log the key press
                         print(f"Tecla pressionada: {pygame.key.name(evento.key)}")
                         if evento.key in [pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT]:
-                            # Make sure snake can't turn 180 degrees
                             if (evento.key == pygame.K_UP and self.direcao != pygame.K_DOWN or
                                 evento.key == pygame.K_DOWN and self.direcao != pygame.K_UP or
                                 evento.key == pygame.K_LEFT and self.direcao != pygame.K_RIGHT or
                                 evento.key == pygame.K_RIGHT and self.direcao != pygame.K_LEFT):
                                 self.direcao = evento.key
 
-                # Moving the snake
                 x, y = self.serpente[0]
                 if self.direcao == pygame.K_UP:
                     y -= self.tamanho
@@ -61,7 +58,6 @@ class Cobra():
 
                 nova_cabeca = (x, y)
 
-                # Check for collisions with walls or itself
                 if x < 0 or x >= self.largura or y < 0 or y >= self.altura or nova_cabeca in self.serpente:
                     print("Colisão! Game Over!")
                     rodando = False
@@ -69,27 +65,24 @@ class Cobra():
 
                 self.serpente.insert(0, nova_cabeca)
 
-                # Check if the snake ate the food
                 if nova_cabeca == self.comida:
                     self.pontos += 10
                     self.comida = self._gerar_comida()
                 else:
                     self.serpente.pop()
 
-                # Drawing everything
-                tela.fill((0, 0, 0))  # Clear screen
+                tela.fill((0, 0, 0))
                 for bloco in self.serpente:
                     pygame.draw.rect(tela, (0, 255, 0), (*bloco, self.tamanho, self.tamanho))
                 pygame.draw.rect(tela, (255, 0, 0), (*self.comida, self.tamanho, self.tamanho))
 
-                # Display score
                 texto_pontos = fonte.render(f"Pontos: {self.pontos}", True, (255, 255, 255))
                 tela.blit(texto_pontos, (10, 10))
 
-                pygame.display.flip()  # Update the screen
+                pygame.display.flip()  
 
         except Exception as e:
             print(f"Erro durante o jogo: {e}")
         finally:
-            pygame.quit()  # Ensure pygame quits properly
+            pygame.quit()  
         return self.pontos

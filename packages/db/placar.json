@@ -13,5 +13,10 @@
         "nome": "rd",
         "pontuacao": 10,
         "dificuldade": "Facil"
+    },
+    {
+        "nome": "es",
+        "pontuacao": 0,
+        "dificuldade": "Facil"
     }
 ]
