@@ -3,5 +3,15 @@
         "nome": "rodrigo",
         "pontuacao": 50,
         "dificuldade": "Difícil"
+    },
+    {
+        "nome": "32e",
+        "pontuacao": 20,
+        "dificuldade": "Facil"
+    },
+    {
+        "nome": "rd",
+        "pontuacao": 10,
+        "dificuldade": "Facil"
     }
 ]

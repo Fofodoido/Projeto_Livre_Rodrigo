@@ -1,6 +1,3 @@
-import os
-import json
-import sys
 import random
 import pygame
 
