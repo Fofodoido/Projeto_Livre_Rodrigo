@@ -1,5 +1,7 @@
 import os
 import pygame
+import sys
+import time
 import json
 from packages.cobrinha import Cobra
 from packages.mdljson import Placar, Jason, Jogador
@@ -40,7 +42,7 @@ class Jogo():
             self.cobrinha= Cobra(self.nome,self.dificuldade)
             pontuacao = self.cobrinha.jogar()
             self.placar.adicionar_placar(self.nome, pontuacao, self.dificuldade)
-                    # After game ends, ask if they want to play again or exit
+            limpar_tela()
             print(f"Jogo terminado! Sua pontuação foi: {pontuacao} pontos.")
             play_again = input("Deseja jogar novamente? (s/n): ").lower()
 
@@ -69,6 +71,8 @@ class Jogo():
                 self.cont = "1"
                 self.rodando=False
                 print("Saindo do Jogo...")
+                time.sleep(2)
+                sys.exit()
             else:
                 limpar_tela()
                 print("Opção Inválida, tente novamente.")

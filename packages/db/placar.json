@@ -1,47 +1,7 @@
 [
     {
-        "nome": "2de",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "rodir",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
         "nome": "rodrigo",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "eie",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "rod",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "ed",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "es",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "s",
-        "pontuacao": 0,
-        "dificuldade": "Facil"
-    },
-    {
-        "nome": "dx",
-        "pontuacao": 0,
-        "dificuldade": "Médio"
+        "pontuacao": 50,
+        "dificuldade": "Difícil"
     }
 ]
