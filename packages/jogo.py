@@ -4,8 +4,7 @@ import sys
 import time
 import json
 from packages.cobrinha import Cobra
-from packages.mdljson import Placar, Jason, Jogador
-
+from packages.mdljson import Placar
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -44,16 +43,21 @@ class Jogo():
             self.placar.adicionar_placar(self.nome, pontuacao, self.dificuldade)
             limpar_tela()
             print(f"Jogo terminado! Sua pontuação foi: {pontuacao} pontos.")
-            play_again = input("Deseja jogar novamente? (s/n): ").lower()
-
+            while True:
+                play_again = input("Deseja jogar novamente? (s/n): ").lower()
+            
+                if play_again == 's':
+                    limpar_tela()
+                    break 
+                elif play_again == 'n':
+                    break  
+                else:
+                    limpar_tela()
+                    print("Opção inválida. Responda com 's' para sim ou 'n' para não.")
+                    continue
             if play_again == 'n':
-                break 
-            else:
-                limpar_tela()
-                continue
-    def _tela_do_jogo(self):
-        pygame.init()
-  
+                break
+
     def exibir_menu(self):
         while self.cont=="0":
             print("Bem vindo ao menu. Escolha uma das opções abaixo:\n   1 - Iniciar Jogo \n   2 - Ver placar \n   3 - Sair")

@@ -12,4 +12,4 @@ source venv/bin/activate
 pip install --upgrade pip >/dev/null
 pip install -r requirements.txt
 
-python3 jogo_main.py
+python3 main.py

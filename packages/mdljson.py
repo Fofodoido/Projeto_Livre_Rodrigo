@@ -1,6 +1,6 @@
 import json
-
-class Jason():
+from abc import ABC, abstractmethod
+class Jason(ABC):
     def __init__(self,filename):
         self.__filename = "packages/db/" + filename
         self._models=[]
@@ -24,6 +24,10 @@ class Jason():
     def get_models(self):
         return self._models
     
+    @abstractmethod
+    def exibir_placar(self):
+        pass
+        
 
 class Placar(Jason):
     def __init__(self, filename):
@@ -42,7 +46,3 @@ class Placar(Jason):
             print("Placar completo:")
             for i, recorde in enumerate(self._models, start=1):
                 print(f"{i}. {recorde['nome']} - {recorde['pontuacao']} pontos - Dificuldade: {recorde['dificuldade']}")        
-    
-class Jogador(Jason):
-    def __init__(self, filename):
-        super().__init__(filename)
