@@ -7,7 +7,6 @@ from packages.cobrinha import Cobra
 from packages.mdljson import Placar
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
-
 class Jogo():
     
     def __init__(self):
@@ -23,7 +22,7 @@ class Jogo():
             dificuldade=input()
             limpar_tela()
             if dificuldade == '1':
-                self.dificuldade = "Facil"
+                self.dificuldade = "Fácil"
             elif dificuldade == '2':
                 self.dificuldade = "Médio"
             elif dificuldade == '3':
@@ -36,8 +35,15 @@ class Jogo():
                 limpar_tela()
                 print("Opção inválida. Tente novamente.")
                 continue  
-            print("Insira o seu nome:")
-            self.nome=input()
+            while True:
+                print("Insira o seu nome:")
+                self.nome = input()
+                self.nome = self.nome.strip()
+
+                if self.nome: 
+                    break 
+                else:
+                    print("Nome não pode ser vazio! Tente novamente.")     
             self.cobrinha= Cobra(self.nome,self.dificuldade)
             pontuacao = self.cobrinha.jogar()
             self.placar.adicionar_placar(self.nome, pontuacao, self.dificuldade)

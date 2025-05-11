@@ -34,9 +34,17 @@ class Placar(Jason):
         super().__init__(filename)
         
     def adicionar_placar(self,nome,pontuacao,dificuldade):
-        novo_recorde= {"nome": nome, "pontuacao":pontuacao, "dificuldade": dificuldade}
+        dificuldade_rank = {"fácil": 1, "médio": 2, "difícil": 3}
+        dificuldade_normalizada = dificuldade.lower().strip()
+        novo_recorde= {"nome": nome, "pontuacao":pontuacao, "dificuldade": dificuldade_normalizada}
         self._models.append(novo_recorde)
-        self._models = sorted(self._models, key=lambda x: x["pontuacao"], reverse=True)
+        self._models = sorted(
+            self._models,
+            key=lambda x: (
+                dificuldade_rank.get(x["dificuldade"], 0), 
+                -x["pontuacao"] 
+            )
+        )
         self.save()
     
     def exibir_placar(self):
@@ -45,4 +53,4 @@ class Placar(Jason):
         else:
             print("Placar completo:")
             for i, recorde in enumerate(self._models, start=1):
-                print(f"{i}. {recorde['nome']} - {recorde['pontuacao']} pontos - Dificuldade: {recorde['dificuldade']}")        
+                print(f"{i}. {recorde['nome']} - {recorde['pontuacao']} pontos - Dificuldade: {recorde['dificuldade']}")

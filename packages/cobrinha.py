@@ -1,12 +1,11 @@
 import random
 import pygame
-
 class Cobra():
     def __init__(self, cobrinha, dificuldade):
         self.cobrinha = cobrinha
         self.dificuldade = dificuldade
         self.tamanho = 20
-        self.velocidade = {"Facil": 8, "Médio": 12, "Difícil": 18}[dificuldade]
+        self.velocidade = {"Fácil": 8, "Médio": 12, "Difícil": 18}[dificuldade]
         self.largura = 600
         self.altura = 400
         self.clock = pygame.time.Clock()
@@ -28,7 +27,7 @@ class Cobra():
         tela = pygame.display.set_mode((self.largura, self.altura))
         pygame.display.set_caption(f"Snake - {self.cobrinha}")
         fonte = pygame.font.SysFont(None, 36)
-        pygame.time.delay(5000) 
+        pygame.time.delay(2500) 
         rodando = True
         try:
             while rodando:
