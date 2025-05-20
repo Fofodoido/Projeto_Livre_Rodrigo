@@ -67,7 +67,7 @@ class Jogo():
 
     def exibir_menu(self):
         while self.cont=="0":
-            print("Bem vindo ao menu. Escolha uma das opções abaixo:\n   1 - Iniciar Jogo \n   2 - Ver placar \n   3 - Sair")
+            print("Bem vindo ao menu. Escolha uma das opções abaixo:\n   1 - Iniciar Jogo \n   2 - Ver placar \n   3 - Instruções   \n   4 - Sair")
             opcao=input()
             if opcao=="1":
                 limpar_tela()
@@ -77,7 +77,14 @@ class Jogo():
                 self.placar.exibir_placar()
                 input("\nPressione Enter para voltar ao menu...")
                 limpar_tela()
+                
             elif opcao=='3':
+                limpar_tela()
+                print("Para mover a cobra, utilize as setinhas do teclado (→, ←, ↑, ↓).\nÉ sempre bom clicar na tela do jogo quando começar caso rode no Windows devido a problemas de adaptação.\nRegras:\n 1 - Se bater na parede, o jogo acaba.\n 2 - Se bater em si mesmo, o jogo acaba.")
+                input("\nPressione Enter para voltar ao menu...")
+                limpar_tela()
+                
+            elif opcao=='4':
                 limpar_tela()
                 self.cont = "1"
                 self.rodando=False
