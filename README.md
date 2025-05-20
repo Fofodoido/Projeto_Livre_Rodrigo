@@ -1,4 +1,6 @@
 # Projeto_Livre_Rodrigo
+Rodrigo Henrique Donato de Souza - 241012374
+
 Projeto livre de Orientação a Objeto que busca fazer o jogo da cobrinha.
 O projeto em UML e em Casos de Uso está na pasta principal do arquivo.
 

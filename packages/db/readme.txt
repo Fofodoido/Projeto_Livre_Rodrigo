@@ -1,0 +1,1 @@
+salva os nomes e placar.

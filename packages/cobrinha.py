@@ -1,5 +1,6 @@
 import random
 import pygame
+import time
 class Cobra():
     def __init__(self, cobrinha, dificuldade):
         self.cobrinha = cobrinha
@@ -13,7 +14,9 @@ class Cobra():
         self.serpente = [(100, 100), (80, 100), (60, 100)]
         self.comida = self._gerar_comida()
         self.pontos = 0
-
+        self.ultima_direcao = 0
+        self.delay_direcao = 100
+        
     def _gerar_comida(self):
         return (
             random.randrange(0, self.largura, self.tamanho),
@@ -32,6 +35,7 @@ class Cobra():
         try:
             while rodando:
                 self.clock.tick(self.velocidade)
+                agora = pygame.time.get_ticks()
                 for evento in pygame.event.get():
                     if evento.type == pygame.QUIT:
                         print("Fechando o jogo...")
@@ -39,11 +43,13 @@ class Cobra():
                     elif evento.type == pygame.KEYDOWN:
                         print(f"Tecla pressionada: {pygame.key.name(evento.key)}")
                         if evento.key in [pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT]:
-                            if (evento.key == pygame.K_UP and self.direcao != pygame.K_DOWN or
-                                evento.key == pygame.K_DOWN and self.direcao != pygame.K_UP or
-                                evento.key == pygame.K_LEFT and self.direcao != pygame.K_RIGHT or
-                                evento.key == pygame.K_RIGHT and self.direcao != pygame.K_LEFT):
-                                self.direcao = evento.key
+                            if agora - self.ultima_direcao > self.delay_direcao:
+                                if (evento.key == pygame.K_UP and self.direcao != pygame.K_DOWN or
+                                    evento.key == pygame.K_DOWN and self.direcao != pygame.K_UP or
+                                    evento.key == pygame.K_LEFT and self.direcao != pygame.K_RIGHT or
+                                    evento.key == pygame.K_RIGHT and self.direcao != pygame.K_LEFT):
+                                    self.direcao = evento.key
+                                    self.ultima_direcao = agora
 
                 x, y = self.serpente[0]
                 if self.direcao == pygame.K_UP:

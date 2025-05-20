@@ -15,6 +15,7 @@ class Jogo():
         self.cont="0"
         self.nome=""
         self.placar = Placar("placar.json")
+
         
     def iniciar_jogo(self):
         while True:
