@@ -15,7 +15,7 @@ class Cobra():
         self.comida = self._gerar_comida()
         self.pontos = 0
         self.ultima_direcao = 0
-        self.delay_direcao = 100
+        self.delay_direcao = 10
         
     def _gerar_comida(self):
         return (
